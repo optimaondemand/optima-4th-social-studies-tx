@@ -1770,6 +1770,13 @@ body {
 
 @keyframes shake { 0%,100%{transform:translateX(0)} 25%{transform:translateX(-6px)} 75%{transform:translateX(6px)} }
 
+/* ═══ Root Match enhancements — base colors for word vs root, !important on states ═══ */
+.root-match-item.is-word { background: #EAF8FD; border-color: #1B3A5C; }
+.root-match-item.is-root { background: #F0E8FF; border-color: #8B6FC0; }
+.root-match-item.selected { background: #DDD0FF !important; border-color: #6B4FA0 !important; box-shadow: 0 0 0 3px rgba(139,111,192,0.3); }
+.root-match-item.matched { background: #E3F8ED !important; border-color: #34B76F !important; pointer-events: none; opacity: 0.8; }
+.root-match-item.wrong-flash { background: #FFF0EC !important; border-color: #E8636B !important; }
+
 </style>
 </head>
 <body>

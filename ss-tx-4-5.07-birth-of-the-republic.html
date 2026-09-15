@@ -1770,6 +1770,13 @@ body {
 
 @keyframes shake { 0%,100%{transform:translateX(0)} 25%{transform:translateX(-6px)} 75%{transform:translateX(6px)} }
 
+/* ═══ Root Match enhancements — base colors for word vs root, !important on states ═══ */
+.root-match-item.is-word { background: #EAF8FD; border-color: #1B3A5C; }
+.root-match-item.is-root { background: #F0E8FF; border-color: #8B6FC0; }
+.root-match-item.selected { background: #DDD0FF !important; border-color: #6B4FA0 !important; box-shadow: 0 0 0 3px rgba(139,111,192,0.3); }
+.root-match-item.matched { background: #E3F8ED !important; border-color: #34B76F !important; pointer-events: none; opacity: 0.8; }
+.root-match-item.wrong-flash { background: #FFF0EC !important; border-color: #E8636B !important; }
+
 </style>
 </head>
 <body>
@@ -2008,14 +2015,14 @@ body {
       <div class="activity-body">
         <p style="font-size:14px;color:#7A88A8;margin-bottom:12px;">Tap a word, then tap its matching root. Get all four to unlock a discovery!</p>
         <div style="display:flex;flex-wrap:wrap;gap:8px;justify-content:center;">
-          <div class="root-match-item" data-match="rep" onclick="rootMatchClick(this)" style="display:inline-flex;align-items:center;padding:10px 16px;border-radius:12px;border:2px solid #8B6FC0;background:#F0E8FF;cursor:pointer;font-size:14px;font-weight:700;color:#0E1C42;transition:all 0.2s;user-select:none;">res publica — public affair, the people's matter</div>
-          <div class="root-match-item is-word" data-match="con" onclick="rootMatchClick(this)" style="display:inline-flex;align-items:center;padding:10px 16px;border-radius:12px;border:2px solid #1B3A5C;background:#EAF8FD;cursor:pointer;font-size:14px;font-weight:700;color:#0E1C42;transition:all 0.2s;user-select:none;">constitution</div>
-          <div class="root-match-item" data-match="con" onclick="rootMatchClick(this)" style="display:inline-flex;align-items:center;padding:10px 16px;border-radius:12px;border:2px solid #8B6FC0;background:#F0E8FF;cursor:pointer;font-size:14px;font-weight:700;color:#0E1C42;transition:all 0.2s;user-select:none;">constituere — to establish, set up</div>
-          <div class="root-match-item is-word" data-match="sov" onclick="rootMatchClick(this)" style="display:inline-flex;align-items:center;padding:10px 16px;border-radius:12px;border:2px solid #1B3A5C;background:#EAF8FD;cursor:pointer;font-size:14px;font-weight:700;color:#0E1C42;transition:all 0.2s;user-select:none;">sovereign</div>
-          <div class="root-match-item" data-match="sov" onclick="rootMatchClick(this)" style="display:inline-flex;align-items:center;padding:10px 16px;border-radius:12px;border:2px solid #8B6FC0;background:#F0E8FF;cursor:pointer;font-size:14px;font-weight:700;color:#0E1C42;transition:all 0.2s;user-select:none;">superanus — supreme, above all</div>
-          <div class="root-match-item is-word" data-match="cit" onclick="rootMatchClick(this)" style="display:inline-flex;align-items:center;padding:10px 16px;border-radius:12px;border:2px solid #1B3A5C;background:#EAF8FD;cursor:pointer;font-size:14px;font-weight:700;color:#0E1C42;transition:all 0.2s;user-select:none;">citizen</div>
-          <div class="root-match-item" data-match="cit" onclick="rootMatchClick(this)" style="display:inline-flex;align-items:center;padding:10px 16px;border-radius:12px;border:2px solid #8B6FC0;background:#F0E8FF;cursor:pointer;font-size:14px;font-weight:700;color:#0E1C42;transition:all 0.2s;user-select:none;">civis — member of a community</div>
-          <div class="root-match-item is-word" data-match="rep" onclick="rootMatchClick(this)" style="display:inline-flex;align-items:center;padding:10px 16px;border-radius:12px;border:2px solid #1B3A5C;background:#EAF8FD;cursor:pointer;font-size:14px;font-weight:700;color:#0E1C42;transition:all 0.2s;user-select:none;">republic</div>
+          <div class="root-match-item is-root" data-match="rep" onclick="rootMatchClick(this)">res publica — public affair, the people's matter</div>
+          <div class="root-match-item is-word" data-match="con" onclick="rootMatchClick(this)">constitution</div>
+          <div class="root-match-item is-root" data-match="con" onclick="rootMatchClick(this)">constituere — to establish, set up</div>
+          <div class="root-match-item is-word" data-match="sov" onclick="rootMatchClick(this)">sovereign</div>
+          <div class="root-match-item is-root" data-match="sov" onclick="rootMatchClick(this)">superanus — supreme, above all</div>
+          <div class="root-match-item is-word" data-match="cit" onclick="rootMatchClick(this)">citizen</div>
+          <div class="root-match-item is-root" data-match="cit" onclick="rootMatchClick(this)">civis — member of a community</div>
+          <div class="root-match-item is-word" data-match="rep" onclick="rootMatchClick(this)">republic</div>
         </div>
         <div class="root-match-feedback" id="rootMatchFeedback" style="display:none;margin-top:12px;padding:12px;background:#E3F8ED;border:2px solid #B8E8CF;border-radius:10px;text-align:center;font-size:15px;color:#0E1C42;font-weight:700;">⭐ All matched! Word roots help you unlock the meaning of new words.</div>
         <div id="rootDiscoveryFact" style="display:none;margin-top:8px;padding:10px;background:#FFF3DC;border-radius:8px;font-size:13px;color:#5A4A3A;text-align:center;">🧠 <strong>Discovery:</strong> Many English words about government come from Latin — because the Romans were great organizers of government systems!</div>
@@ -2051,10 +2058,10 @@ body {
         <div class="source-card-header-title">The Lone Star Flag and Republic Seal</div>
       </div>
     </div>
-    <div class="source-image-placeholder" data-image="source-4-05-07-republic-flag-seal">
+    <div class="source-image-placeholder" data-image="source-4-05-07-republic-flag">
       <div class="source-image-placeholder-text">
         🖼️ The Lone Star flag of the Republic of Texas — a single white star on a blue vertical stripe beside horizontal white and red stripes. Beside it, the Great Seal of the Republic, featuring a five-pointed star encircled by olive and live oak branches.<br><br>
-        <strong>Save your image as:</strong> <code style="background:rgba(0,0,0,0.06);padding:2px 8px;border-radius:4px;font-size:13px;">source-4-05-07-republic-flag-seal.jpg</code>
+        <strong>Save your image as:</strong> <code style="background:rgba(0,0,0,0.06);padding:2px 8px;border-radius:4px;font-size:13px;">source-4-05-07-republic-flag.jpg</code>
       </div>
     </div>
     <div class="source-card-body">

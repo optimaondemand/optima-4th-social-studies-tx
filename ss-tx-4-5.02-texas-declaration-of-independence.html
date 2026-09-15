@@ -1770,6 +1770,13 @@ body {
 
 @keyframes shake { 0%,100%{transform:translateX(0)} 25%{transform:translateX(-6px)} 75%{transform:translateX(6px)} }
 
+/* ═══ Root Match enhancements — base colors for word vs root, !important on states ═══ */
+.root-match-item.is-word { background: #EAF8FD; border-color: #1B3A5C; }
+.root-match-item.is-root { background: #F0E8FF; border-color: #8B6FC0; }
+.root-match-item.selected { background: #DDD0FF !important; border-color: #6B4FA0 !important; box-shadow: 0 0 0 3px rgba(139,111,192,0.3); }
+.root-match-item.matched { background: #E3F8ED !important; border-color: #34B76F !important; pointer-events: none; opacity: 0.8; }
+.root-match-item.wrong-flash { background: #FFF0EC !important; border-color: #E8636B !important; }
+
 </style>
 </head>
 <body>
@@ -2037,10 +2044,10 @@ body {
         <div class="source-card-header-title">Excerpt from the Texas Declaration of Independence</div>
       </div>
     </div>
-    <div class="source-image-placeholder" data-image="source-4-05-02-texas-declaration-excerpt">
+    <div class="source-image-placeholder" data-image="source-4-05-02-texas-declaration">
       <div class="source-image-placeholder-text">
         🖼️ An excerpt from the Texas Declaration of Independence (March 2, 1836): 'When a government has ceased to protect the lives, liberty, and property of the people from whom its legitimate powers are derived... it is the right of the people to... abolish such government, and create another in its stead.'<br><br>
-        <strong>Save your image as:</strong> <code style="background:rgba(0,0,0,0.06);padding:2px 8px;border-radius:4px;font-size:13px;">source-4-05-02-texas-declaration-excerpt.jpg</code>
+        <strong>Save your image as:</strong> <code style="background:rgba(0,0,0,0.06);padding:2px 8px;border-radius:4px;font-size:13px;">source-4-05-02-texas-declaration.jpg</code>
       </div>
     </div>
     <div class="source-card-body">

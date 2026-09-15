@@ -1770,6 +1770,13 @@ body {
 
 @keyframes shake { 0%,100%{transform:translateX(0)} 25%{transform:translateX(-6px)} 75%{transform:translateX(6px)} }
 
+/* ═══ Root Match enhancements — base colors for word vs root, !important on states ═══ */
+.root-match-item.is-word { background: #EAF8FD; border-color: #1B3A5C; }
+.root-match-item.is-root { background: #F0E8FF; border-color: #8B6FC0; }
+.root-match-item.selected { background: #DDD0FF !important; border-color: #6B4FA0 !important; box-shadow: 0 0 0 3px rgba(139,111,192,0.3); }
+.root-match-item.matched { background: #E3F8ED !important; border-color: #34B76F !important; pointer-events: none; opacity: 0.8; }
+.root-match-item.wrong-flash { background: #FFF0EC !important; border-color: #E8636B !important; }
+
 </style>
 </head>
 <body>
@@ -2037,10 +2044,10 @@ body {
         <div class="source-card-header-title">Colony Trade Ledger</div>
       </div>
     </div>
-    <div class="source-image-placeholder" data-image="source-4-04-04-trade-ledger">
+    <div class="source-image-placeholder" data-image="source-4-04-04-trade-goods-ledger">
       <div class="source-image-placeholder-text">
         🖼️ A reproduction of a general store ledger or trade goods list from an early Texas colony, showing items bought and sold — cotton bales, cattle hides, corn bushels, tools, cloth, coffee, and gunpowder — with prices and quantities listed. Annotations show which goods were locally produced and which were imported.<br><br>
-        <strong>Save your image as:</strong> <code style="background:rgba(0,0,0,0.06);padding:2px 8px;border-radius:4px;font-size:13px;">source-4-04-04-trade-ledger.jpg</code>
+        <strong>Save your image as:</strong> <code style="background:rgba(0,0,0,0.06);padding:2px 8px;border-radius:4px;font-size:13px;">source-4-04-04-trade-goods-ledger.jpg</code>
       </div>
     </div>
     <div class="source-card-body">
