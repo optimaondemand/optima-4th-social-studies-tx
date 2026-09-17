@@ -3000,11 +3000,7 @@ function rootMatchClick(item) {
 }
 
 /* ═══════════ FLIP CARDS ═══════════ */
-document.querySelectorAll('.flip-card').forEach(function(card) {
-  card.addEventListener('click', function() {
-    card.classList.toggle('flipped');
-  });
-});
+/* Toggle handled by inline onclick on each .flip-card div */
 
 /* ═══════════ TURN-IN CHECKLIST ═══════════ */
 function toggleCheck(item) {
