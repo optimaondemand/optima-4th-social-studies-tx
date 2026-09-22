@@ -2799,15 +2799,38 @@ function updateProgress() {
   document.getElementById('progressPct').textContent = pct + '%';
 }
 
-/* ═══════════ AUTO-SAVE ═══════════ */
+/* ═══════════ AUTO-SAVE (localStorage) ═══════════ */
+var LESSON_KEY = document.title.match(/([\d.]+)/);
+LESSON_KEY = LESSON_KEY ? 'ss-tx-' + LESSON_KEY[1] : 'ss-tx-unknown';
+
+function loadSaved() {
+  try {
+    var saved = JSON.parse(localStorage.getItem(LESSON_KEY) || '{}');
+    Object.keys(saved).forEach(function(id) {
+      var el = document.getElementById(id);
+      if (el) {
+        el.value = saved[id];
+        var dotId = id.replace('journal-', 'dot-');
+        var dot = document.getElementById(dotId);
+        if (dot) dot.classList.add('saved');
+      }
+    });
+  } catch(e) {}
+}
+
 function autoSave(textarea, dotId) {
   var dot = document.getElementById(dotId);
   if (dot) {
     dot.classList.add('saved');
-    clearTimeout(textarea._saveTimeout);
-    textarea._saveTimeout = setTimeout(function() {}, 300);
   }
+  try {
+    var saved = JSON.parse(localStorage.getItem(LESSON_KEY) || '{}');
+    saved[textarea.id] = textarea.value;
+    localStorage.setItem(LESSON_KEY, JSON.stringify(saved));
+  } catch(e) {}
 }
+
+window.addEventListener('DOMContentLoaded', loadSaved);
 
 /* ═══════════ GATHER ANSWERS ═══════════ */
 function gatherAnswers() {
@@ -2836,16 +2859,39 @@ function gatherAnswers() {
 function copyGathered() {
   gatherAnswers();
   var output = document.getElementById('gatheredOutput');
-  if (!output) return;
-  if (navigator.clipboard && navigator.clipboard.writeText) {
-    navigator.clipboard.writeText(output.value).then(function() {
-      showCopied();
-    });
-  } else {
-    output.select();
-    document.execCommand('copy');
-    showCopied();
+  if (!output || !output.value.trim()) return;
+  var text = output.value;
+
+  function tryCopy() {
+    if (navigator.clipboard && navigator.clipboard.writeText) {
+      return navigator.clipboard.writeText(text).then(function() {
+        showCopied();
+      }).catch(function() {
+        fallbackCopy();
+      });
+    } else {
+      fallbackCopy();
+    }
   }
+
+  function fallbackCopy() {
+    var ta = document.createElement('textarea');
+    ta.value = text;
+    ta.style.cssText = 'position:fixed;left:-9999px;top:-9999px;opacity:0;';
+    document.body.appendChild(ta);
+    ta.focus();
+    ta.select();
+    try {
+      document.execCommand('copy');
+      showCopied();
+    } catch(e) {
+      output.select();
+      alert('Auto-copy did not work in this browser. Press Ctrl+C (or Cmd+C) to copy your selected answers.');
+    }
+    document.body.removeChild(ta);
+  }
+
+  tryCopy();
 }
 function showCopied() {
   var msg = document.getElementById('gatheredCopied');
