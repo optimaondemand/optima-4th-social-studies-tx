@@ -2338,37 +2338,37 @@ function renderCoverStickers() {
     </div>
     <div class="activity-body">
       <div class="vocab-grid">
-        <div class="flip-card" onclick="this.classList.toggle('flipped')">
+        <div class="flip-card">
           <div class="flip-card-inner">
             <div class="flip-card-front"><div class="fc-emoji">🗽</div><div class="fc-word">liberty</div><div class="fc-tap">tap to flip</div></div>
             <div class="flip-card-back"><div class="fc-word-back">liberty</div><div class="fc-def">The state of being free — having the right to live, think, and act without unfair control by the government.</div></div>
           </div>
         </div>
-        <div class="flip-card" onclick="this.classList.toggle('flipped')">
+        <div class="flip-card">
           <div class="flip-card-inner">
             <div class="flip-card-front"><div class="fc-emoji">🔒</div><div class="fc-word">unalienable rights</div><div class="fc-tap">tap to flip</div></div>
             <div class="flip-card-back"><div class="fc-word-back">unalienable rights</div><div class="fc-def">Rights that cannot be taken away — the Declaration says these include life, liberty, and the pursuit of happiness.</div></div>
           </div>
         </div>
-        <div class="flip-card" onclick="this.classList.toggle('flipped')">
+        <div class="flip-card">
           <div class="flip-card-inner">
             <div class="flip-card-front"><div class="fc-emoji">🤝</div><div class="fc-word">consent of the governed</div><div class="fc-tap">tap to flip</div></div>
             <div class="flip-card-back"><div class="fc-word-back">consent of the governed</div><div class="fc-def">The idea that government gets its power from the people — citizens agree to be governed and can change the government if it fails them.</div></div>
           </div>
         </div>
-        <div class="flip-card" onclick="this.classList.toggle('flipped')">
+        <div class="flip-card">
           <div class="flip-card-inner">
             <div class="flip-card-front"><div class="fc-emoji">📜</div><div class="fc-word">constitution</div><div class="fc-tap">tap to flip</div></div>
             <div class="flip-card-back"><div class="fc-word-back">constitution</div><div class="fc-def">A written plan for how a government is organized and what powers it has — the supreme law of the land.</div></div>
           </div>
         </div>
-        <div class="flip-card" onclick="this.classList.toggle('flipped')">
+        <div class="flip-card">
           <div class="flip-card-inner">
             <div class="flip-card-front"><div class="fc-emoji">📋</div><div class="fc-word">Bill of Rights</div><div class="fc-tap">tap to flip</div></div>
             <div class="flip-card-back"><div class="fc-word-back">Bill of Rights</div><div class="fc-def">The first ten amendments to the Constitution — they protect individual freedoms like speech, religion, and a fair trial.</div></div>
           </div>
         </div>
-        <div class="flip-card" onclick="this.classList.toggle('flipped')">
+        <div class="flip-card">
           <div class="flip-card-inner">
             <div class="flip-card-front"><div class="fc-emoji">⚖️</div><div class="fc-word">self-governance</div><div class="fc-tap">tap to flip</div></div>
             <div class="flip-card-back"><div class="fc-word-back">self-governance</div><div class="fc-def">The ability of people to govern themselves — making rules together and choosing leaders through fair processes.</div></div>
@@ -3379,6 +3379,13 @@ initPassport();
 
 /* ═══════════ SOURCE IMAGE AUTO-LOADER ═══════════ */
 (function(){var B='https://raw.githubusercontent.com/bbirchum1/optima-4th-social-studies-tx/main/images/';var EX=['.png','.jpg','.jpeg','.webp'];document.querySelectorAll('.source-image-placeholder[data-image]').forEach(function(el){var name=el.getAttribute('data-image');if(!name||name.indexOf('✏️')>-1)return;tryImg(el,name,0)});function tryImg(el,name,i){if(i>=EX.length)return;var img=new Image();img.onload=function(){img.style.cssText='width:100%;height:auto;display:block;max-width:100%;';img.alt=name.replace(/-/g,' ');el.innerHTML='';el.style.cssText='padding:0;border:none;background:none;min-height:0;max-height:none;height:auto;overflow:visible;border-radius:12px;display:block;width:100%;';el.appendChild(img)};img.onerror=function(){tryImg(el,name,i+1)};img.src=B+name+EX[i]}})();
+
+/* ═══════════ FLIP CARDS ═══════════ */
+document.querySelectorAll('.flip-card').forEach(function(card) {
+  card.addEventListener('click', function() {
+    card.classList.toggle('flipped');
+  });
+});
 </script>
 </body>
 </html>
