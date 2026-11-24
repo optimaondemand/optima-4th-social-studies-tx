@@ -3250,7 +3250,7 @@ function downloadJournal() {
   html += '.q-label{font-size:13px;font-weight:bold;color:#3A4A6B;margin:16px 0 2px;}';
   html += '.q-answer{font-size:14px;color:#0E1C42;margin:0 0 4px;padding:6px 12px;background:#f8f9fc;border-left:3px solid #D6F2FB;border-radius:4px;white-space:pre-wrap;}';
   html += '.no-answer{color:#B0B8CC;font-style:italic;}';
-  html += '</style></head><body>';
+  html += '</style></head><bo' + 'dy>';
   html += '<h1>📓 My Work — Lesson 4.01</h1>';
   html += '<h2>Empresarios: Austin and de León</h2>';
 
@@ -3266,7 +3266,7 @@ function downloadJournal() {
       : '<div class="q-answer no-answer">(no answer)</div>';
   });
 
-  html += '</body></html>';
+  html += '</bo' + 'dy></html>';
   var win = window.open('', '_blank');
   win.document.write(html);
   win.document.close();
